@@ -1,0 +1,26 @@
+plugins { id 'fabric-loom' }
+tasks.withType(JavaExec).configureEach { javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(21) } }
+base { archivesName = 'rubidium-client-benchmark-dev-only-1.21.11' }
+dependencies {
+    minecraft 'com.mojang:minecraft:1.21.11'
+    mappings loom.officialMojangMappings()
+    modImplementation 'net.fabricmc:fabric-loader:0.19.5'
+    modImplementation 'net.fabricmc.fabric-api:fabric-api:0.141.6+1.21.11'
+    implementation project(path: ':minecraft-1.21.11', configuration: 'namedElements')
+    implementation project(':common')
+}
+loom {
+    runs {
+        client {
+            runDir project.findProperty('clientBenchDir') ?: 'run-client'
+            vmArg '-Xms1G'
+            vmArg '-Xmx4G'
+            programArgs '--username', 'RubidiumTester', '--width', '1280', '--height', '720'
+            property 'rubidium.bench.mode', project.findProperty('benchMode') ?: 'observe'
+            property 'rubidium.bench.noGate', project.findProperty('benchNoGate') ?: 'false'
+            property 'rubidium.bench.experimentalUploads', project.findProperty('benchUploads') ?: 'false'
+        }
+    }
+}
+
+

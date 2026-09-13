@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "id": "rubidium_flow",
+  "version": "${version}",
+  "name": "Rubidium",
+  "description": "Automatic exact structure-calculation fast path. Native rendering unchanged. No configuration required. Independent of Forge Rubidium.",
+  "environment": "*",
+  "license": "MIT",
+  "mixins": [
+    "rubidium-flow.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "fabric-api": ">=0.141.6+1.21.11",
+    "minecraft": "1.21.11",
+    "java": ">=21"
+  }
+}

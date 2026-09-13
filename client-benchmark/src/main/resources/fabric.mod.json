@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "id": "rubidium_client_benchmark",
+  "version": "0.1.0",
+  "name": "Rubidium internal client benchmark - NOT FOR NORMAL GAMEPLAY",
+  "environment": "client",
+  "mixins": ["rubidium-client-benchmark.mixins.json"],
+  "entrypoints": { "client": ["fr.rubidium.flow.clientbench.ClientBenchmark"] },
+  "depends": { "rubidium_flow": "*", "fabric-api": "*", "minecraft": "1.21.1" }
+}

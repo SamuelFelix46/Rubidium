@@ -1,0 +1,33 @@
+# Progress — plan: docs/implementation-plan.md
+
+2026-09-11: User approved design and execution. Empty project workspace, no existing Git repository. Java/javac 21.0.10 present. Network downloads require approved escalation. Cached Fabric/Minecraft mappings available read-only.
+
+Preflight: Task 1 produces controller and frame APIs consumed by Task 2; signatures fixed in core-brief. Task 2 exposes benchmark-only runtime disable control consumed by Task 3. Task 4 packages only measured artifacts from Task 3. No source files shared between agent task and root integration.
+
+Decision: use isolated new project directory instead of a worktree because no repository exists. Use cached Minecraft binaries for bytecode inspection, never distribute them.
+
+Decision: limit only the standalone noise supplier, not the entire worldgen dependency graph. A finite gate cannot bound all vanilla pending work: saturation explicitly falls back to vanilla, counted and documented. This avoids task loss at the cost of relaxing concurrency under overload.
+
+2026-09-12: Recovered build tooling; isolated Java tmp directory fixes AF_UNIX selector startup on this host. All4modules build offline. 42 common tests pass (10gate,7uploads,5frames,4interval,16controller). Runtime review found callback starvation/cancellation/stale tick/process-vs-systemCPU/GPU attribution; fixed and regression-covered. Final low-CPU recovery fix also applied.
+
+Benchmark correction: public getChunkFuture blocks on server thread; replaced ONLY in separate dev harness with private asynchronous invoker. Early smoke timings discarded. Later review found warmup-ticket teardown overlapping timing; corrected by retaining tickets +5s quiet interval. Old v1 timings remain exploratory, not final performance evidence. Observation-only repeated FULL worlds differ7398blocks, so live/saved final-world comparison is inconclusive. Added exact-coverage separate NOISE-stage hash audit; full end-to-end saved-world proof still pending. Integrity/profile run types explicitly mark performanceValid=false.
+
+Profile (2180 execution samples in measured144chunk window) showed substantial Mth.clampedMap/Beardifier cost. Added exact radius6 zero fast path preserving vanilla arithmetic for all other values. Added active-runtime MathAudit375956cases and per-coordinate NOISE blocks/biome hashes. Static independent review passes, runtime audit pending.
+
+Added render-thread-only budgeted FIFO upload consumption at LevelRenderer.compileSections. Original dispatcher full-drain disposal is untouched. 2ms/64jobs soft limit; a single upload may exceed it. Seven deterministic tests cover ordering/progress/boundaries. Disabled alongside Sodium. Beardifier disabled alongside C2ME. Detection is not general compatibility certification.
+
+Actual visible client benchmark: Ryzen5PRO7535U/Radeon integrated,12logical CPUs,4GiBheap,1280x720,Fancy,view8,VSync off,0unfocused frames.60s route four new-terrain stops. Baseline observe2:285.87FPS,P9914.0644ms,max409.1664ms,16frames>50ms,799noise tasks,74final visible sections. Active gated:304.68FPS,P998.0851ms,max138.0002ms,7frames>50ms,BUT638tasks,17sections and193overflow bypasses. REJECTED admission gating for player releases. Active noGate:305.74FPS,P9914.0864ms,max158.8931ms,12frames>50ms,935tasks,74sections. These are single exploratory runs; do not claim universal gain. Both final game screenshots inspected.
+
+Selected player build now activates only exact math fast path and upload budgeting. Normal installations do NOT create Pulse monitor/sampler or intercept generation suppliers/frame telemetry. Research classes/harness retained for reproducibility. Sources have updated harness scenarioRevision2 with fixed warmup camera before final repeats. Version0.1.0-alpha.1 remains experimental pending final repetitions and integrity checks. Ports not implemented or certified; read-only API feasibility audit requested.
+
+2026-09-13: Selected1.21.1 NOISE block+biome hashes pass Overworld64/64 (two references and active),Nether16/16,End16/16.375956real-method math checks each. Dedicated ABBA144chunks: A11.5804475/11.5011571s,B11.3707031/11.4109453s;mean elapsed1.3%lower;two repeats each,limited evidence.
+
+All11modules build successfully with Gradle9.6.1/Loom1.17.20,JDK25 Gradle JVM,JDK21 legacy toolchains.48tests pass(42common+6port1.21.11).Legacy harness project dependencies use namedElements, avoiding missing remapped artifact during clean configuration.1.21.11 helper moved out of reserved mixin package;graphicsPreset API used in its separate client harness.
+
+26.1and26.2 ports keep native renderer and only optimize exact Beardifier math.Official API0.145.1+26.1/0.160.0+26.2;JDK25.Each actual Fabric server passed375956cases and saved all dimensions before shutdown.1.21.11 API0.141.6+1.21.11/JDK21 actual server passedsameaudit. Its port-audit renderingModified=false refers to dedicated-server context, not client feature scope.
+
+ProductionSmoke1.21.1 loaded under distinct dev ID: zero Pulse threads,no noise gate redirect,375956math cases pass. Test harness restored after smoke. Graphical scenarioRevision2 fixes warmup camera and records Java runtime; final client repetitions in progress.
+
+2026-09-13 final selection correction: Graphical revision2 A1=298.73FPS,B1=379.30,B2=389.76. After a five-hour quota interruption,A2=739.19,B3=532.38;B3 also had22frames>50ms vs11 and77finalsections vs163. Hardware state was not instrumented. No defensible aggregate FPS gain: upload budgeting is REJECTED from player gameplay, just like Pulse. Only exact math remains active across all four releases. CompatibilityPlugin requires both a recognized research harness and explicit experimentalUploads=true before admitting upload mixins; normal installations ignore this property. Metadata/initializer descriptions and release docs rewritten for the final scope. release-build.log SUCCESS54s,48tests stillpass. Final remapped1.21.1/1.21.11 server audits repeated after this guard change; source JAR hashes must match release audit manifests.1.21.11 packaged-client baseline completed;final active and1.21.1 guard smoke pending.
+
+Final packaged clients completed:1.21.11 active and1.21.1 distinct-ID normal-player smoke. Both report uploadHookPresent=false,pulseThreads=0,zero unfocused/menu frames;all dimensions saved at shutdown.Screenshots inspected.The1.21.1 smoke additionally reports playerGuardsPassed=true.Packaged client runs classified performanceValid=false:runtime checks only,unpaired1.21.1 and inactivity FPS limiter not explicitly neutralized on1.21.11.These results must not support FPS gain claims.Final archive contains math-only player behavior on all4versions and historical rejected results separately.

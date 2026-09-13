@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "fr.rubidium.flow.clientbench.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "ClientFrameMixin",
+    "QueueAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

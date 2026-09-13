@@ -1,0 +1,9 @@
+{
+  "required": true,
+  "package": "fr.rubidium.flow.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "plugin": "fr.rubidium.flow.mixin.CompatibilityPlugin",
+  "mixins": ["BeardifierMixin"],
+  "client": ["client.SectionRenderDispatcherAccessor", "client.LevelRendererMixin"],
+  "injectors": { "defaultRequire": 1 }
+}

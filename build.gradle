@@ -1,0 +1,16 @@
+plugins {
+    id 'fabric-loom' version '1.17.20' apply false
+    id 'net.fabricmc.fabric-loom' version '1.17.20' apply false
+}
+allprojects {
+    group = 'fr.rubidium.flow'
+    version = '0.1.0-alpha.1'
+    repositories { mavenCentral() }
+}
+subprojects {
+    plugins.withId('java') {
+        java { toolchain { languageVersion = JavaLanguageVersion.of(21) }; withSourcesJar() }
+        tasks.withType(JavaCompile).configureEach { options.release = 21; options.encoding = 'UTF-8' }
+        tasks.withType(Test).configureEach { useJUnitPlatform() }
+    }
+}

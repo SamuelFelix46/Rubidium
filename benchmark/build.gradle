@@ -1,0 +1,25 @@
+plugins { id 'fabric-loom' }
+base { archivesName = 'rubidium-benchmark-dev-only' }
+dependencies {
+    minecraft 'com.mojang:minecraft:1.21.1'
+    mappings loom.officialMojangMappings()
+    modImplementation 'net.fabricmc:fabric-loader:0.19.5'
+    modImplementation 'net.fabricmc.fabric-api:fabric-api:0.116.17+1.21.1'
+    implementation project(path: ':minecraft-1.21.1', configuration: 'namedElements')
+    implementation project(':common')
+}
+loom {
+    runs {
+        server {
+            runDir project.findProperty('benchDir') ?: 'run-server'
+            programArg 'nogui'
+            vmArg '-Xms1G'
+            vmArg '-Xmx4G'
+            property 'rubidium.bench.mode', project.findProperty('benchMode') ?: 'observe'
+            property 'rubidium.bench.side', project.findProperty('benchSide') ?: '8'
+            property 'rubidium.bench.dimension', project.findProperty('benchDimension') ?: 'overworld'
+            property 'rubidium.bench.reload', project.findProperty('benchReload') ?: 'false'
+        }
+    }
+}
+
