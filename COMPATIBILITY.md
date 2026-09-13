@@ -7,7 +7,7 @@
 | 26.1 | 25 | 0.145.1+26.1 | Compilation, serveur réel, calcul exact ; pas d'essai graphique |
 | 26.2 | 25 | 0.160.0+26.2 | Compilation, serveur réel, calcul exact ; pas d'essai graphique |
 
-Fabric Loader vérifié : **0.19.5**. Utiliser un seul JAR correspondant exactement au jeu. Ces contrôles limités ne certifient pas tous les matériels, mondes ou modpacks.
+Fabric Loader de référence : **0.18.4** pour 1.21.11 et **0.19.5** pour 1.21.1 / 26.x. Utiliser un seul JAR correspondant exactement au jeu. Ces contrôles limités ne certifient pas tous les matériels, mondes ou modpacks.
 
 | Situation | Comportement normal |
 |---|---|

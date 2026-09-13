@@ -6,7 +6,7 @@ Le rubidium est l'élément chimique 37, un métal alcalin comme le sodium et le
 
 ## Installation
 
-Installer Fabric Loader **0.19.5**, puis mettre **un seul JAR Rubidium** correspondant au jeu et la Fabric API correspondante dans `mods`.
+Installer Fabric Loader, puis mettre **un seul JAR Rubidium** correspondant au jeu et la Fabric API correspondante dans `mods`. Les builds de référence utilisent Loader **0.18.4** pour 1.21.11 et **0.19.5** pour 1.21.1 / 26.x.
 
 | Minecraft | Java | Fabric API vérifiée | JAR Rubidium 0.1.0-alpha.1 |
 |---|---|---|---|
