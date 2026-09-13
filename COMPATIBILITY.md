@@ -3,7 +3,7 @@
 | Minecraft | Java | Fabric API | Contrôles effectués |
 |---|---|---|---|
 | 1.21.1 | 21 | 0.116.17+1.21.1 | Compilation, serveur réel, calcul exact, empreintes NOISE dans trois dimensions, client graphique |
-| 1.21.11 | 21 | 0.141.6+1.21.11 | Compilation, tests du port, serveur réel, calcul exact, client graphique |
+| 1.21.11 | 21 | 0.140.2+1.21.11 | Compilation, tests du port, serveur réel, calcul exact, client graphique |
 | 26.1 | 25 | 0.145.1+26.1 | Compilation, serveur réel, calcul exact ; pas d'essai graphique |
 | 26.2 | 25 | 0.160.0+26.2 | Compilation, serveur réel, calcul exact ; pas d'essai graphique |
 

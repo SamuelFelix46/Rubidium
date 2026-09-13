@@ -11,7 +11,7 @@ Installer Fabric Loader **0.19.5**, puis mettre **un seul JAR Rubidium** corresp
 | Minecraft | Java | Fabric API vérifiée | JAR Rubidium 0.1.0-alpha.1 |
 |---|---|---|---|
 | 1.21.1 | 21 | 0.116.17+1.21.1 | rubidium-flow-1.21.1-0.1.0-alpha.1.jar |
-| 1.21.11 | 21 | 0.141.6+1.21.11 | rubidium-flow-1.21.11-0.1.0-alpha.1.jar |
+| 1.21.11 | 21 | 0.140.2+1.21.11 | rubidium-flow-1.21.11-0.1.0-alpha.1.jar |
 | 26.1 | 25 | 0.145.1+26.1 | rubidium-flow-26.1-0.1.0-alpha.1.jar |
 | 26.2 | 25 | 0.160.0+26.2 | rubidium-flow-26.2-0.1.0-alpha.1.jar |
 

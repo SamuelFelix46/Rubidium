@@ -60,17 +60,17 @@ The module selects:
 - `com.mojang:minecraft:1.21.11` exactly;
 - official Mojang mappings;
 - `net.fabricmc:fabric-loader:0.19.5`;
-- `net.fabricmc.fabric-api:fabric-api:0.141.6+1.21.11`;
+- `net.fabricmc.fabric-api:fabric-api:0.140.2+1.21.11`;
 - Java 21 inherited from the root build;
 - the root's already declared legacy `fabric-loom` 1.17.20 plugin, appropriate to the obfuscated 1.21.11 line.
 
-Fabric's official loader metadata endpoint currently returns Loader 0.19.5 as stable for intermediary `1.21.11`. The official Fabric Maven metadata contains `0.141.6+1.21.11`, and that exact API is present in the read-only Gradle cache. Its embedded `fabric.mod.json` declares Loader `>=0.17.3`, Java `>=21`, and Minecraft `>=1.21.11- <1.21.12-`.
+Fabric's official loader metadata endpoint currently returns Loader 0.19.5 as stable for intermediary `1.21.11`. The requested Fabric API is `0.140.2+1.21.11`; its embedded `fabric.mod.json` is checked by the rebuild.
 
 Cached artifact SHA-256 values:
 
 ```text
-fabric-api-0.141.6+1.21.11.jar
-BDFF7FD7E220085CFAD2FF9B1F40DDE6534AE0B96CF378F97A374BC54CB9ED0F
+fabric-api-0.140.2+1.21.11.jar
+Verified during the rebuild; see the Gradle dependency cache.
 
 fabric-loader-0.19.5.jar
 93044E4DD46DE5D8136701292F05E868DA096D2C9FDDB4793E4FDBCC63EFC695
