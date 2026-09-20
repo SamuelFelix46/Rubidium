@@ -6,12 +6,14 @@
 | 1.21.11 | 21 | 0.140.2+1.21.11 | Compilation, tests du port, serveur réel, calcul exact, client graphique |
 | 26.1 | 25 | 0.145.1+26.1 | Compilation, serveur réel, calcul exact ; pas d'essai graphique |
 | 26.2 | 25 | 0.160.0+26.2 | Compilation, serveur réel, calcul exact ; pas d'essai graphique |
+| 26.3 | 25 | 0.161.0+26.3 | Compilation, serveur réel, vérification du raccourci devenu natif ; aucun mixin Rubidium |
 
 Fabric Loader de référence : **0.18.4** pour 1.21.11 et **0.19.5** pour 1.21.1 / 26.x. Utiliser un seul JAR correspondant exactement au jeu. Ces contrôles limités ne certifient pas tous les matériels, mondes ou modpacks.
 
 | Situation | Comportement normal |
 |---|---|
-| Toutes les versions livrées | Raccourci mathématique autour des structures ; rendu et concurrence vanilla conservés |
+| 1.21.1 à 26.2 | Raccourci mathématique autour des structures ; rendu et concurrence vanilla conservés |
+| 26.3 | Le raccourci est déjà présent dans vanilla ; Rubidium ne modifie aucune classe |
 | Partie solo | Calcul dans le serveur intégré |
 | Serveur dédié | Calcul serveur ; aucune classe de rendu nécessaire |
 | Client connecté à un autre serveur | Installer aussi le mod sur ce serveur pour y optimiser le calcul |

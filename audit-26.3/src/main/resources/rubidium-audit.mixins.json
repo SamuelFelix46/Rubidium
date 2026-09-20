@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "fr.rubidium.audit.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "BeardifierInvoker"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

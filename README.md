@@ -1,6 +1,6 @@
 # Rubidium — Fabric
 
-Une optimisation automatique et ciblée du calcul de génération autour des structures. Le raccourci conserve le résultat de la formule vanilla. **Le rendu, les files graphiques et la concurrence de génération restent ceux de Minecraft dans une installation normale.** Aucun réglage, menu ou profil n'est nécessaire.
+Une optimisation automatique et ciblée du calcul de génération autour des structures. Le raccourci conserve le résultat de la formule vanilla. À partir de Minecraft 26.3, Mojang intègre déjà ce raccourci : le JAR Rubidium 26.3 sert donc uniquement de build de compatibilité et n'injecte aucun mixin. **Le rendu, les files graphiques et la concurrence de génération restent ceux de Minecraft dans une installation normale.** Aucun réglage, menu ou profil n'est nécessaire.
 
 Le rubidium est l'élément chimique 37, un métal alcalin comme le sodium et le lithium. Ce projet est indépendant de Rubidium pour Forge ; son identifiant est `rubidium_flow`.
 
@@ -8,16 +8,17 @@ Le rubidium est l'élément chimique 37, un métal alcalin comme le sodium et le
 
 Installer Fabric Loader, puis mettre **un seul JAR Rubidium** correspondant au jeu et la Fabric API correspondante dans `mods`. Les builds de référence utilisent Loader **0.18.4** pour 1.21.11 et **0.19.5** pour 1.21.1 / 26.x.
 
-| Minecraft | Java | Fabric API vérifiée | JAR Rubidium 0.1.0-alpha.1 |
-|---|---|---|---|
-| 1.21.1 | 21 | 0.116.17+1.21.1 | rubidium-flow-1.21.1-0.1.0-alpha.1.jar |
-| 1.21.11 | 21 | 0.140.2+1.21.11 | rubidium-flow-1.21.11-0.1.0-alpha.1.jar |
-| 26.1 | 25 | 0.145.1+26.1 | rubidium-flow-26.1-0.1.0-alpha.1.jar |
-| 26.2 | 25 | 0.160.0+26.2 | rubidium-flow-26.2-0.1.0-alpha.1.jar |
+| Minecraft | Java | Fabric Loader | Fabric API vérifiée | JAR Rubidium |
+|---|---|---|---|---|
+| 1.21.1 | 21 | 0.19.5 | 0.116.17+1.21.1 | rubidium-flow-1.21.1-0.1.0-alpha.2.jar |
+| 1.21.11 | 21 | 0.18.4 | 0.140.2+1.21.11 | rubidium-flow-1.21.11-0.1.0-alpha.1.jar |
+| 26.1 | 25 | 0.19.5 | 0.145.1+26.1 | rubidium-flow-26.1-0.1.0-alpha.1.jar |
+| 26.2 | 25 | 0.19.5 | 0.160.0+26.2 | rubidium-flow-26.2-0.1.0-alpha.1.jar |
+| 26.3 | 25 | 0.19.5 | 0.161.0+26.3 | rubidium-flow-26.3-0.1.0-alpha.2.jar |
 
 Téléchargements officiels : [Fabric](https://fabricmc.net/use/installer/), [Fabric API](https://github.com/FabricMC/fabric/releases).
 
-Le mod s'utilise en solo ou sur serveur Fabric. Pour modifier le calcul d'un serveur distant, il doit être installé sur ce serveur. Les JAR des bancs de test ne sont pas fournis dans le dossier des JAR à installer.
+Le mod s'utilise en solo ou sur serveur Fabric. Pour appliquer l'optimisation 1.21.1 à un serveur distant, il doit être installé sur ce serveur. En 26.3, le raccourci est déjà natif. Les JAR des bancs de test ne sont pas fournis dans le dossier des JAR à installer.
 
 ## Fonction retenue après les essais
 
@@ -27,7 +28,7 @@ Le prototype Pulse retardait l'arrivée du terrain. Le prototype de budget graph
 
 ## Résultats et état
 
-Version **0.1.0-alpha.1, expérimentale**. Le scénario dédié de 144 chunks donne environ **1,3 % de temps en moins**, sur deux passages par variante. Les essais ne démontrent pas de hausse générale des FPS ni la disparition des saccades. Lire `BENCHMARKS.md` pour les résultats individuels, les prototypes rejetés et les limites.
+Version **0.1.0-alpha.2 pour 1.21.1 et 26.3, expérimentale**. Le scénario dédié de 144 chunks donne environ **1,3 % de temps en moins**, sur deux passages par variante 1.21.1. Les essais ne démontrent pas de hausse générale des FPS ni la disparition des saccades. Lire `BENCHMARKS.md` pour les résultats individuels, les prototypes rejetés et les limites.
 
 La livraison comprend les JAR, les sources, les descriptions et les mesures. `SHA256SUMS.txt` permet de contrôler les fichiers. Les ressources et binaires Minecraft ainsi que Fabric API ne sont pas redistribués.
 

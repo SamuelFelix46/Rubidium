@@ -15,7 +15,7 @@
     "rubidium-flow.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.16.0",
+    "fabricloader": ">=0.19.5",
     "fabric-api": ">=0.116.17",
     "minecraft": "1.21.1",
     "java": ">=21"

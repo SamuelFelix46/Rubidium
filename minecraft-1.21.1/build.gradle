@@ -1,4 +1,5 @@
 plugins { id 'fabric-loom' }
+version = '0.1.0-alpha.2'
 base { archivesName = 'rubidium-flow-1.21.1' }
 dependencies {
     minecraft 'com.mojang:minecraft:1.21.1'
